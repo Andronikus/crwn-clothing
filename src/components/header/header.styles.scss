@@ -26,6 +26,10 @@
 
         .option {
             padding: 0 15px;
+
+            &.pointer{
+                cursor: pointer;
+            } 
         }
     }
 }
