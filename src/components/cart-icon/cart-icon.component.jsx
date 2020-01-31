@@ -11,8 +11,6 @@ import './cart-icon.styles.scss';
 
 
 const CartIcon = ({ toogleHiddenCart, numberOfItems }) => {
-    
-    console.log('numberOfItems: ', numberOfItems);
     return (
         <div className='cart-item-container' onClick={toogleHiddenCart} >
             <ShoppingIcon className='shopping-icon' />
