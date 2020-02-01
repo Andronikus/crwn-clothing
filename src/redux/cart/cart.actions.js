@@ -4,9 +4,19 @@ export const toogleHiddenValue = () => ({
     type: cartActionTypes.TOOGLE_HIDDEN_CART
 });
 
-export const addItem = item => (
+export const addItemToCart = item => (
     {
-        type: cartActionTypes.ADD_ITEM,
+        type: cartActionTypes.ADD_ITEM_TO_CART,
         payload: item
     }
 );
+
+export const clearItemFromCart = item => ({
+    type: cartActionTypes.CLEAR_ITEM_FROM_CART,
+    payload: item
+});
+
+export const removeItemFromCart = item => ({
+    type: cartActionTypes.REMOVE_ITEM_FROM_CART,
+    payload: item
+});
