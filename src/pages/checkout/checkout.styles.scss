@@ -18,11 +18,12 @@
             text-transform: capitalize;
             width: 23%;
 
-            &:last-child{
+            &:last-child {
                 width: 8%;
             }
         }
     }
+
     .checkout-items-container {
         width: 100%;
     }
@@ -30,6 +31,16 @@
     .total {
         font-size: 36px;
         margin-top: 50px;
+        margin-left: auto;
+    }
+
+    .testing-data {
+        font-size: 16px;
+        color: sienna;
+        margin-bottom: 20px;
+    }
+
+    button {
         margin-left: auto;
     }
 }
