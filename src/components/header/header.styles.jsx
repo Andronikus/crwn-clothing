@@ -1,10 +1,6 @@
-import styles, { css } from 'styled-components';
+import styles from 'styled-components';
 import { Link } from 'react-router-dom';
 import { ReactComponent as LogoImage } from '../../assets/crown.svg';
-
-const optionStyle = css`
-    padding: 0 15px;
-`
 
 export const HeaderContainer = styles.div`
     width: 100%;
@@ -36,11 +32,6 @@ export const OptionsContainer = styles.div`
 `
 
 export const LinkOption = styles(Link)`
-    ${optionStyle}
-`
-
-export const LogoutOption = styles.div`
-    ${optionStyle}
+    padding: 0 15px;
     cursor: pointer;
 `
-

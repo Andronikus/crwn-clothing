@@ -12,7 +12,7 @@ import { selectHidden } from '../../redux/cart/cart.selectores';
 import { selectCurrentUser } from '../../redux/user/user.selectores';
 
 
-import { HeaderContainer, LogoContainer, Logo, OptionsContainer, LinkOption, LogoutOption } from './header.styles';
+import { HeaderContainer, LogoContainer, Logo, OptionsContainer, LinkOption } from './header.styles';
 
 
 const Header = ({ currentUser, hidden }) => (
@@ -24,7 +24,7 @@ const Header = ({ currentUser, hidden }) => (
             <LinkOption to='/shop'>SHOP</LinkOption>
             <LinkOption to='/contact'>CONTACT</LinkOption>
             {currentUser ?
-                <LogoutOption onClick={() => auth.signOut()}>LOG OUT</LogoutOption>
+                <LinkOption as='div' onClick={() => auth.signOut()}>LOG OUT</LinkOption>
                 :
                 <LinkOption to='/signin'>SIGN IN</LinkOption>
             }
