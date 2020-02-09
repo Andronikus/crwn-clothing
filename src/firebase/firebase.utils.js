@@ -51,8 +51,6 @@ export const createCollectionAndAddDocs = async (collectionName, documentsArray)
 }
 
 export const createShopItemsFromCollectionsSnapshoot = (collectionsSnapshot) => {
-  console.log({ collectionsSnapshot });
-
   const collectionArray = collectionsSnapshot.docs.map(doc => {
     const { title, items } = doc.data();
     return {

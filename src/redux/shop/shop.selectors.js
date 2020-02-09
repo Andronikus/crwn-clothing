@@ -6,3 +6,7 @@ export const selectCollections = createSelector([selectShop], shop => shop.colle
 
 export const selectCollection = collectionItem =>
     createSelector([selectCollections], collections => collections[collectionItem])
+
+export const selectCollectionAlreadyDefined = createSelector([selectShop], shop => {
+    return !!shop.collections;
+});
