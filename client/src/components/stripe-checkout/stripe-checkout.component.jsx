@@ -3,7 +3,8 @@ import axios from 'axios';
 
 import StripeCheckout from 'react-stripe-checkout';
 
-axios.defaults.baseURL = "http://localhost:5000";
+const port = process.env.PORT || 5000;
+axios.defaults.baseURL = "http://localhost:" + port;
 
 const StripeCheckoutButton = ({ price }) => {
     const stripeAmount = price * 100;
