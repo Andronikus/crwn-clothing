@@ -21,10 +21,10 @@ app.use(cors());
 
 if (process.env.NODE_ENV === 'production') {
     // set static content dir to serve
-    app.use(express.static(path.join(__dirname, 'client/public')));
+    app.use(express.static(path.join(__dirname, 'client/build')));
     // all get requests not treated will return the index.html file
     app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client/public', 'index.html'));
+        res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
     })
 }
 
