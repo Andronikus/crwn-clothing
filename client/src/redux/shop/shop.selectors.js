@@ -10,3 +10,5 @@ export const selectCollection = collectionItem =>
 export const selectCollectionAlreadyDefined = createSelector([selectShop], shop => {
     return !!shop.collections;
 });
+
+export const selectIsCollectionFetching = createSelector([selectShop], shop => shop.collections === undefined);
