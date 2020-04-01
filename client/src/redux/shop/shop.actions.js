@@ -1,5 +1,4 @@
 import shopActionTypes from './shop.action.types.js';
-import { firestore, createShopItemsFromCollectionsSnapshoot } from '../../firebase/firebase.utils';
 
 export const updateShop = (collectionMap) => {
     return {
@@ -8,13 +7,13 @@ export const updateShop = (collectionMap) => {
     }
 }
 
-const fetchCollectionStart = () => {
+export const fetchCollectionStart = () => {
     return {
         type: shopActionTypes.FETCHING_COLLECTION_START
     }
 }
 
-const fetchCollectionSuccess = collectionMap => {
+export const fetchCollectionSuccess = collectionMap => {
     return {
         type: shopActionTypes.FETCHING_COLLECTION_SUCCESS,
         payload: collectionMap
@@ -22,14 +21,15 @@ const fetchCollectionSuccess = collectionMap => {
 }
 
 
-const fetchCollectionFailure = errorMessage => {
+export const fetchCollectionFailure = errorMessage => {
     return {
         type: shopActionTypes.FETCHING_COLLECTION_FAILURE,
         payload: errorMessage
     }
 }
 
-export const fetchShopCollectionsAsync = () => {
+
+/* export const fetchShopCollectionsAsync = () => {
     return dispatch => {
         // start fetching data
         dispatch(fetchCollectionStart());
@@ -41,4 +41,4 @@ export const fetchShopCollectionsAsync = () => {
             })
             .catch(error => dispatch(fetchCollectionFailure(error)));
     }
-}
+} */
