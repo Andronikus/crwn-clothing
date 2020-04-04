@@ -22,3 +22,15 @@ export const signInFailure = error => ({
 export const checkUserAuthenticated = () => ({
   type: userActionTypes.CHECK_USER_AUTH,
 })
+
+export const signOutStart = () => ({
+  type: userActionTypes.SIGN_OUT_START,
+});
+
+export const signOutSuccess = () => ({
+  type: userActionTypes.SIGN_OUT_SUCCESS,
+});
+
+export const signOutFailure = () => ({
+  type: userActionTypes.SIGN_OUT_FAILURE,
+});
