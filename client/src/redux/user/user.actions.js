@@ -14,7 +14,11 @@ export const signInSuccess = user => ({
   payload: user
 });
 
-export const signFailure = error => ({
+export const signInFailure = error => ({
   type: userActionTypes.SIGN_IN_FAILURE,
   payload: error
 });
+
+export const checkUserAuthenticated = () => ({
+  type: userActionTypes.CHECK_USER_AUTH,
+})

@@ -3,12 +3,13 @@ import { takeLatest, all, put, call } from "redux-saga/effects";
 import userActionTypes from "./user.actions.types";
 import {
   signInSuccess,
-  signFailure,
+  signInFailure,
 } from "./user.actions";
 import {
   auth,
   googleProvider,
-  createUserProfileDocument
+  createUserProfileDocument,
+  getCurrentUser
 } from "../../firebase/firebase.utils";
 
 // Workers
@@ -20,7 +21,7 @@ function* processUser(user){
       signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() })
     );
   }catch(error){
-    yield put(signFailure(error));
+    yield put(signInFailure(error));
   }
 }
 
@@ -29,7 +30,7 @@ function* googleSignIn() {
     const { user } = yield auth.signInWithPopup(googleProvider);
     yield call(processUser,user);
   } catch (error) {
-    yield put(signFailure(error));
+    yield put(signInFailure(error));
   }
 }
 
@@ -38,7 +39,16 @@ function* signInWithEmailAndPassword({payload: { email, password }}) {
     const { user } = yield auth.signInWithEmailAndPassword(email, password);
     yield call(processUser,user);
   } catch (error) {
-    yield put(signFailure(error));
+    yield put(signInFailure(error));
+  }
+}
+
+function* isUserAuthenticated(){
+  try{
+    const userAuth = yield call(getCurrentUser);
+    yield call(processUser, userAuth);
+  }catch(error){
+    yield put(signInFailure(error));
   }
 }
 
@@ -54,8 +64,12 @@ function* onsignInWithEmailAndPassword() {
   );
 }
 
+function* onCheckUserAuthenticated(){
+  yield takeLatest(userActionTypes.CHECK_USER_AUTH, isUserAuthenticated);
+}
+
 const userSagas = function*() {
-  yield all([call(onGoogleSignIn), call(onsignInWithEmailAndPassword)]);
+  yield all([call(onGoogleSignIn), call(onsignInWithEmailAndPassword), call(onCheckUserAuthenticated)]);
 };
 
 export default userSagas;

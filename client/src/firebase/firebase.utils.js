@@ -67,6 +67,15 @@ export const createShopItemsFromCollectionsSnapshoot = (collectionsSnapshot) => 
   }, {});
 }
 
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unSubscribeFromAuth = auth.onAuthStateChanged(userAuth => {
+      unSubscribeFromAuth();
+      resolve(userAuth);
+    }, reject);
+  })
+}
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 

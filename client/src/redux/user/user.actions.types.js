@@ -3,6 +3,7 @@ const userActionTypes = {
     EMAIL_SIGN_IN_START: 'EMAIL_SIGN_IN_START',
     SIGN_IN_SUCCESS: 'SIGN_IN_SUCCESS',
     SIGN_IN_FAILURE: 'SIGN_IN_FAILURE',
+    CHECK_USER_AUTH: 'CHECK_USER_AUTH',
 }
 
 export default userActionTypes;
