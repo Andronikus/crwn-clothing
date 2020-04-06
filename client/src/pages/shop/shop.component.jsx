@@ -1,41 +1,35 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React, { useEffect } from "react";
+import { Route } from "react-router-dom";
+import { connect } from "react-redux";
 
-//import CollectionOverview from '../../components/collection-overview/collection-overview.component';
-import CollectionOverviewContainer from '../../components/collection-overview/collection-overview.container';
-import CollectionPageContainer from '../../pages/collection/collection.container';
-import { fetchCollectionStart } from '../../redux/shop/shop.actions';
+import CollectionOverviewContainer from "../../components/collection-overview/collection-overview.container";
+import CollectionPageContainer from "../../pages/collection/collection.container";
+import { fetchCollectionStart } from "../../redux/shop/shop.actions";
 
-class ShopPage extends React.Component {
+const ShopPage = ({ fetchCollectionStart, match }) => {
+  useEffect(() => {
+    fetchCollectionStart();
+  }, [fetchCollectionStart]);
+  // fetchCollectionStart will not change... so it will simulate componentDidMount
 
-    componentDidMount() {
-        const { fetchCollectionStart } = this.props;
-        fetchCollectionStart();
-    }
 
-    render() {
-        const { match } = this.props;
+  return (
+    <div className="shop-page">
+      <Route
+        exact
+        path={`${match.path}`}
+        component={CollectionOverviewContainer}
+      />
+      <Route
+        path={`${match.path}/:categoryId`}
+        component={CollectionPageContainer}
+      />
+    </div>
+  );
+};
 
-        console.log({match});
-        return (
-            <div className="shop-page">
-                <Route 
-                    exact 
-                    path={`${match.path}`} 
-                    component={CollectionOverviewContainer} 
-                />
-                <Route 
-                    path={`${match.path}/:categoryId`}
-                    component={CollectionPageContainer} 
-                />
-            </div>
-        );
-    }
-}
-
-const mapDispatchToProps = dispatch => ({
-    fetchCollectionStart: () => dispatch(fetchCollectionStart())
-})
+const mapDispatchToProps = (dispatch) => ({
+  fetchCollectionStart: () => dispatch(fetchCollectionStart()),
+});
 
 export default connect(null, mapDispatchToProps)(ShopPage);
