@@ -15,7 +15,7 @@ import { selectCurrentUser } from "./redux/user/user.selectores";
 
 import "./App.css";
 
-const App = ({ checkUserAuthenticated }) => {
+const App = ({ checkUserAuthenticated, currentUser }) => {
   useEffect(() => {
     checkUserAuthenticated();
   }, [checkUserAuthenticated]);
@@ -30,7 +30,7 @@ const App = ({ checkUserAuthenticated }) => {
           exact
           path="/signin"
           render={() =>
-            this.props.currentUser ? <Redirect to="/" /> : <SignInSignUp />
+            currentUser ? <Redirect to="/" /> : <SignInSignUp />
           }
         />
         <Route exact path="/checkout" component={Checkout} />

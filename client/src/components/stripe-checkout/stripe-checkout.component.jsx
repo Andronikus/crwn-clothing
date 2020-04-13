@@ -30,7 +30,7 @@ const StripeCheckoutButton = ({ price }) => {
         <StripeCheckout
             label='Pay Now'
             name='CRWN Clothes Co.'
-            image='https://sendeyo.com/up/d/f3eb2117da'
+            // image='https://sendeyo.com/up/d/f3eb2117da'
             description={`Your total is ${price}€`}
             amount={stripeAmount}
             currency='EUR'
