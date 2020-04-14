@@ -1,6 +1,10 @@
 {
-    "name": "crwn-clothing-server",
+    "name": "crwn-clothing",
     "version": "1.0.0",
+    "engines": {
+        "node": "11.6.0",
+        "npm": "6.13.7"
+    },
     "scripts": {
         "client": "cd client && npm start",
         "server": "cd server && npm run server",
