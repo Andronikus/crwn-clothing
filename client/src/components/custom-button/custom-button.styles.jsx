@@ -1,41 +1,42 @@
-import styles, { css } from 'styled-components';
-
+import styles, { css } from "styled-components";
 
 const styleButton = css`
-    background-color: black;
-    color: white;
-    border: none;
-`
+  background-color: black;
+  color: white;
+  border: none;
+`;
 
 const styleGoogleButton = css`
-    background-color: #4285F4;
-    color: white;
-    border: none;
+  background-color: #4285f4;
+  color: white;
+  border: none;
 
-    &:hover {
+  &:hover {
     background-color: #357ac8;
     color: white;
     border: none;
-`
-const styleInvertedButton = css`
-    background-color: white;
-    color: black;
-    border: 1px solid black;
+  }
+`;
 
-    &:hover {
+const styleInvertedButton = css`
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+
+  &:hover {
     background-color: black;
     color: white;
     border: none;
-`
+  }
+`;
 
 const styleButtonFromProps = (props) => {
-    if (props.isGoogleSignIn) {
-        return styleGoogleButton;
-    }
+  if (props.isGoogleSignIn) {
+    return styleGoogleButton;
+  }
 
-    return props.invertStyle ? styleInvertedButton : styleButton;
-}
-
+  return props.invertStyle ? styleInvertedButton : styleButton;
+};
 
 export const CustomButtonContainer = styles.button`
     min-width: 165px;
@@ -58,4 +59,4 @@ export const CustomButtonContainer = styles.button`
       border: 1px solid black;
     }
     ${styleButtonFromProps}
-`
+`;
