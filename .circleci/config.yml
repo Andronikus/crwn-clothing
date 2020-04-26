@@ -5,6 +5,8 @@ jobs:
             - image: circleci/node:11.7
         steps:
             - checkout
+            - run: echo "changing to client"
+            - run: cd client
             - run: echo "npm installing"
             - run: npm install
             - run: npm run build
@@ -13,6 +15,8 @@ jobs:
             - image: circleci/node:11.7
         steps:
             - checkout
+            - run: echo "changing to client"
+            - run: cd client
             - run: echo "npm testing"
             - run: npm install
             - run: npm run test
