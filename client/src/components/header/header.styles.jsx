@@ -9,6 +9,12 @@ export const HeaderContainer = styles.div`
     justify-content: space-between;
     margin-bottom: 25px;
     position: relative;
+
+    @media screen and (max-width: 800px){
+        height: 60px;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
 `
 
 export const LogoContainer = styles(Link)`
@@ -17,6 +23,11 @@ export const LogoContainer = styles(Link)`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    @media screen and (max-width: 800px){
+        width: 50px;
+        padding: 0;
+    }
 `
 
 export const Logo = styles(LogoImage)`
@@ -29,6 +40,10 @@ export const OptionsContainer = styles.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
+    @media screen and (max-width: 800px){
+        width: 80%;
+    }
 `
 
 export const LinkOption = styles(Link)`
