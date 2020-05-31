@@ -1,7 +1,5 @@
 import React from 'react';
 
-import style from './error-boundary.style.css';
-
 import { ErrorBoundaryContainer, ErrorBoundaryImage, ErrorBoundaryText } from './error-boundary.styles';
 
 class ErrorBoundary extends React.Component {
@@ -23,13 +21,9 @@ class ErrorBoundary extends React.Component {
     componentDidCatch(error, info) {
         // side effect with error... sending to endpoint, db, etc
         console.log(error);
-        console.log("hasError: ", this.state.hasError);
     }
 
     render() {
-
-        console.log("ErrorBoundary:: render: ", this.state.hasError);
-
         if (this.state.hasError) {
             return (<ErrorBoundaryContainer>
                 <ErrorBoundaryImage imageUrl="https://i.imgur.com/3suxlvm.png" />
@@ -38,8 +32,6 @@ class ErrorBoundary extends React.Component {
         }
 
         return this.props.children;
-
-        // return this.state.hasError ? <div>Ops! Something went wrong!</div> : this.props.children;
     }
 }
 
