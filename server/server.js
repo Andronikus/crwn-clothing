@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
+const compression = require("compression");
 
 // Only include dotenv if not prod env
 process.env.NODE_ENV = "production";
@@ -19,6 +20,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // cross origin request are permitted
 app.use(cors());
+// GZipping files
+app.use(compression());
 
 if (process.env.NODE_ENV === "production") {
   // set static content dir to serve
