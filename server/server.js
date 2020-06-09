@@ -3,10 +3,12 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
 const compression = require("compression");
+const enforce = require("express-sslify");
+
+const PRODUCTION_ENV = "production";
 
 // Only include dotenv if not prod env
-process.env.NODE_ENV = "production";
-if (process.env.NODE_ENV !== "production") require("dotenv").config();
+if (process.env.NODE_ENV !== PRODUCTION_ENV) require("dotenv").config();
 
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 
@@ -20,10 +22,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // cross origin request are permitted
 app.use(cors());
-// GZipping files
-app.use(compression());
 
 if (process.env.NODE_ENV === "production") {
+  // GZipping files
+  app.use(compression());
+  // force request over https
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
+}
+
+if (process.env.NODE_ENV === PRODUCTION_ENV) {
   // set static content dir to serve
   app.use(express.static(path.join(__dirname, "..", "client/build")));
   // all get requests not treated will return the index.html file
@@ -38,6 +45,11 @@ app.listen(port, (error) => {
 });
 
 // routes
+app.get("/service-worker.js", (req, res) => {
+  res.sendFile(
+    path.resolve(__dirname, "..", "/client/build/", "service-worker.js")
+  );
+});
 // POST /payment
 app.post("/payment", (req, res) => {
   const body = {
