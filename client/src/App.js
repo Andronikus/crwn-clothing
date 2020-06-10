@@ -2,6 +2,7 @@ import React, { useEffect, lazy, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import styled from "styled-components";
 
 import Header from "./components/header/header.component";
 
@@ -19,13 +20,22 @@ const SignInSignUp = lazy(() =>
 );
 const Checkout = lazy(() => import("./pages/checkout/checkout.component"));
 
+const Layout = styled.div`
+  width: 100vw;
+  padding: 20px 60px;
+
+  @media screen and (max-width: 800px) {
+    padding: 10px;
+  }
+`;
+
 const App = ({ checkUserAuthenticated, currentUser }) => {
   useEffect(() => {
     checkUserAuthenticated();
   }, [checkUserAuthenticated]);
 
   return (
-    <>
+    <Layout>
       <Header />
       <Switch>
         <ErrorBoundary>
@@ -43,7 +53,7 @@ const App = ({ checkUserAuthenticated, currentUser }) => {
           </Suspense>
         </ErrorBoundary>
       </Switch>
-    </>
+    </Layout>
   );
 };
 

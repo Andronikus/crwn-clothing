@@ -28,9 +28,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(compression());
   // force request over https
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
-}
 
-if (process.env.NODE_ENV === PRODUCTION_ENV) {
   // set static content dir to serve
   app.use(express.static(path.join(__dirname, "..", "client/build")));
   // all get requests not treated will return the index.html file
