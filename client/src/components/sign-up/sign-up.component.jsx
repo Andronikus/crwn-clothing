@@ -71,7 +71,9 @@ const SignUp = ({ signUpStart }) => {
           changeHandler={onChangeHandler}
           required
         />
-        <CustomButton type="submit">SIGN UP</CustomButton>
+        <div className="buttons-container">
+          <CustomButton type="submit">SIGN UP</CustomButton>
+        </div>
       </form>
     </div>
   );

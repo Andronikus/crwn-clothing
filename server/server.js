@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // cross origin request are permitted
 app.use(cors());
 
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === PRODUCTION_ENV) {
   // GZipping files
   app.use(compression());
   // force request over https

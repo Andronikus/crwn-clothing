@@ -1,9 +1,20 @@
 .sign-up {
-    width: 380px;
-    display: flex;
-    flex-direction: column;
+  width: 380px;
+  display: flex;
+  flex-direction: column;
 
-    .title {
-        margin: 10px 0;
-    }
+  .title {
+    margin: 10px 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .sign-up {
+    width: 100%;
+    padding: 0 40px;
+  }
+
+  .buttons-container {
+    width: 100%;
+  }
 }

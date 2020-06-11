@@ -59,4 +59,10 @@ export const CustomButtonContainer = styles.button`
       border: 1px solid black;
     }
     ${styleButtonFromProps}
+
+    @media screen and (max-width: 800px){
+      min-width: 100px;
+      padding: 0 10px 0 10px;
+      margin-right: 10px;
+    }
 `;
