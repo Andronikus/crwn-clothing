@@ -1,3 +1,4 @@
+![Project homepage](https://github.com/Andronikus/crwn-clothing/blob/master/img/crwn-clothes-homepage.jpg)
 ## CRWN-CLOTHING
 
 #### Tech Stack
