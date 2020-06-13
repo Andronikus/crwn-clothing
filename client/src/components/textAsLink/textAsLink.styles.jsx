@@ -8,5 +8,5 @@ export const Container = styles.div`
 export const Text = styles.span`
     color: rgb(0, 0, 255);
     text-decoration: underline;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 `;
