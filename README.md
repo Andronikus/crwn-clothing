@@ -15,10 +15,14 @@ Project like version can be found [here](https://crwn-clothes-shop-live.herokuap
 * Firebase - Authentication & Database
 * Node & Express
 
-**Other parties**
-* [Stripe](https://stripe.com/en-pt) - online payments process
-* [Heroku](https://www.heroku.com/) - deployment
-* [circleci](https://circleci.com/) - CI/CD
+**API**
+* [Stripe](https://stripe.com/en-pt) - online payments processment
+
+**Deploy**
+* [Heroku](https://www.heroku.com/)
+
+**CI/CD**
+* [circleci](https://circleci.com/)
 
 
 
