@@ -24,5 +24,12 @@ Project like version can be found [here](https://crwn-clothes-shop-live.herokuap
 **CI/CD**
 * [circleci](https://circleci.com/)
 
+### Development setup
+
+### TODO List
+- [ ] Add a friendly payment feedback
+- [ ] Increase test covarage
+- [ ] Dockerize project
+ 
 
 
