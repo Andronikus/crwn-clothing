@@ -3,10 +3,10 @@
 
 The master project of the [Complete React Developer in 2020 (w/ Redux, Hooks, GraphQL)](https://www.udemy.com/share/101WH4AkUYeF5TTHQ=/). An e-commerce app with Redux, Hooks, GraphQL, ContextAPI, Stripe, Firebase with payment process included.
 
-### Demo
+## Demo
 Project like version can be found [here](https://crwn-clothes-shop-live.herokuapp.com/).
 
-### Tech Stack
+## Tech Stack
 
 **Frontend**
 * React
@@ -24,9 +24,9 @@ Project like version can be found [here](https://crwn-clothes-shop-live.herokuap
 **CI/CD**
 * [circleci](https://circleci.com/)
 
-### Development setup
+## Development setup
 
-### TODO List
+## TODO List
 - [ ] Add a friendly payment feedback
 - [ ] Increase test covarage
 - [ ] Dockerize project
